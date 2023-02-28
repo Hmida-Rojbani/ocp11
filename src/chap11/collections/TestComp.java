@@ -1,9 +1,6 @@
 package chap11.collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class TestComp {
 
@@ -30,5 +27,6 @@ public class TestComp {
         //persons.sort(Comparator.reverseOrder());
 
         System.out.println(persons);
+        
     }
 }

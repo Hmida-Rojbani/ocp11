@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39c3328c-8a88-4906-bf90-0c7d47dfed5f" name="Changes" comment="Chap10">
-      <change afterPath="$PROJECT_DIR$/src/chap11/collections/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chap11/collections/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chap11/collections/TestComp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chap11/neww/way/TestNew.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chap11/old/way/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/method/ref/Test.java" afterDir="false" />
+    <list default="true" id="39c3328c-8a88-4906-bf90-0c7d47dfed5f" name="Changes" comment="Chap11">
+      <change afterPath="$PROJECT_DIR$/src/chap12/TestIntf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chap12/TestOpt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chap12/TestStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chap11/collections/TestComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chap11/collections/TestComp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,20 +48,7 @@
       <recent name="C:\Users\HmidaTekup\Desktop\modules\OCP11\src\chap8" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestComp">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap10.Test" />
-      <module name="OCP11" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chap10.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TestStream">
     <configuration name="TestComp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chap11.collections.TestComp" />
       <module name="OCP11" />
@@ -77,12 +62,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNew" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap11.neww.way.TestNew" />
+    <configuration name="TestIntf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.TestIntf" />
       <module name="OCP11" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap11.neww.way.*" />
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,12 +75,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTryRes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="chap8.TestTryRes" />
+    <configuration name="TestOpt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.TestOpt" />
       <module name="OCP11" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chap8.*" />
+          <option name="PATTERN" value="chap12.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chap12.TestStream" />
+      <module name="OCP11" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chap12.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,18 +145,18 @@
       <item itemvalue="Application.chap8.TestAssert" />
       <item itemvalue="Application.chap8.TestExp" />
       <item itemvalue="Application.TestComp" />
-      <item itemvalue="Application.TestNew" />
+      <item itemvalue="Application.TestIntf" />
+      <item itemvalue="Application.TestOpt" />
+      <item itemvalue="Application.TestStream" />
       <item itemvalue="Application.chap11.collections.Test" />
-      <item itemvalue="Application.Test" />
-      <item itemvalue="Application.TestTryRes" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestStream" />
+        <item itemvalue="Application.TestOpt" />
+        <item itemvalue="Application.TestIntf" />
         <item itemvalue="Application.TestComp" />
         <item itemvalue="Application.chap11.collections.Test" />
-        <item itemvalue="Application.TestNew" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.TestTryRes" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +171,7 @@
       <workItem from="1676877732436" duration="15822000" />
       <workItem from="1677051812341" duration="24799000" />
       <workItem from="1677484080354" duration="2921000" />
-      <workItem from="1677571359089" duration="7027000" />
+      <workItem from="1677571359089" duration="11779000" />
     </task>
     <task id="LOCAL-00001" summary="to chap4">
       <created>1677051848778</created>
@@ -224,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677500281528</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chap11">
+      <created>1677579404390</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677579404391</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +253,7 @@
     <MESSAGE value="Chap7" />
     <MESSAGE value="Chap8" />
     <MESSAGE value="Chap10" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chap10" />
+    <MESSAGE value="Chap11" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chap11" />
   </component>
 </project>
