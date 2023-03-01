@@ -33,7 +33,10 @@ public class FindTheStream {
         // 1 - La liste des noms des personnes majeures.
         System.out.println("\nLa liste des noms des personnes majeures");
 
-        List<String> adults = null;
+        List<String> adults = persons.stream()
+                             .filter(person -> person.getAge() >18)
+                             .map(Person::getName)
+                             .collect(Collectors.toList());
 
         System.out.println(adults);
 
@@ -41,7 +44,17 @@ public class FindTheStream {
         // 2 - L'ensemble des livres lus.
         System.out.println("\nL'ensemble des livres lus");
 
-        Set<Book> booksRead =null;
+        /*Set<Book> booksRead =persons.stream()
+                        .map(Person::getBooks)
+                        .flatMap(List::stream)
+                        .collect(Collectors.toSet());*/
+        /*Set<Book> booksRead =persons.stream()
+                        .flatMap(person -> person.getBooks().stream())
+                        .collect(Collectors.toSet());*/
+        List<Book> booksRead =persons.stream()
+                .flatMap(person -> person.getBooks().stream())
+                .distinct()
+                .collect(Collectors.toList());
 
         System.out.println(booksRead);
 
@@ -49,7 +62,8 @@ public class FindTheStream {
         // 3 - Les ensembles des livres lus indexés par l'âge du lecteur.
         System.out.println("\nLes ensembles des livres lus indexés par l'âge du lecteur");
 
-        Map<Integer, Set<Book>> booksReadByAge = null;
+        Map<Integer, Set<Book>> booksReadByAge = persons.stream()
+                                .collect(Collectors.groupingBy(Person::getAge,Collectors.flatMapping(person->person.getBooks().stream(),Collectors.toSet())));
 
         System.out.println(toString(booksReadByAge));
 
@@ -57,7 +71,9 @@ public class FindTheStream {
         // 4 - Pour chaque livre, le nombre de personnes l'ayant lu
         System.out.println("\nPour chaque livre, le nombre de personnes l'ayant lu");
 
-        Map<Book, Long> ownerCountByBook = null;
+        Map<Book, Long> ownerCountByBook = persons.stream()
+                                    .flatMap(person -> person.getBooks().stream())
+                                    .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
 
         System.out.println(toString(ownerCountByBook));
 
