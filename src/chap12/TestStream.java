@@ -3,6 +3,7 @@ package chap12;
 import chap11.collections.Person;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -10,9 +11,12 @@ public class TestStream {
     public static void main(String[] args) {
         List<Person> persons = new ArrayList<>(List.of(
                 new Person("John",15),
+                new Person("John",35),
                 new Person("Jane",18),
                 new Person("Jack",20),
                 new Person("Adam",21),
+                new Person("Adam",19),
+                new Person("Adam",31),
                 new Person("Steven",30),
                 new Person("Sara",32),
                 new Person("Aline",20),
@@ -71,7 +75,7 @@ public class TestStream {
         var groupByAge = persons.stream()
                 .collect(Collectors.groupingBy(Person::getAge,Collectors.toSet()));
 
-        System.out.println(groupByAge);
+        System.out.println(toString(groupByAge));
 
         var countByAge = persons.stream()
                 .collect(Collectors.groupingBy(Person::getAge,Collectors.counting()));
@@ -86,7 +90,57 @@ public class TestStream {
         var res = Stream.of(persons,persons)
                 .flatMap(List::stream)
                 .map(Person::getName)
-                .collect(Collectors.toList());
+                .collect(Collectors.joining(", "));
+                //.collect(Collectors.toList());
 
+
+        var groupByName = persons.stream()
+                .sorted(Comparator.comparing(Person::getAge).reversed())
+                .collect(Collectors.groupingBy(person -> person.hashCode()));
+        System.out.println(toString(groupByName));
+
+        var sumOfAges = persons.stream()
+                .mapToInt(Person::getAge).sum();
+        System.out.println(sumOfAges);
+
+        var sumOfAges2 = persons.stream()
+                .map(Person::getAge)
+                .parallel()
+                .reduce((Integer a1,Integer a2)->a1+a2);
+        System.out.println(sumOfAges2);
+
+        var sumOfAges3 = persons.stream()
+                .map(Person::getAge)
+                .parallel()
+                .reduce(0,(Integer a1, Integer a2)->a1+a2);
+        System.out.println(sumOfAges3);
+
+        var sumOfAges4 = persons.stream()
+                .parallel()
+                .reduce(0,(Integer i, Person p)-> i+p.getAge(),(Integer a1,Integer a2)->a1+a2);
+        System.out.println(sumOfAges4);
+
+        Stream.generate(() -> "growl!").limit(2).forEach(System.out::println);
+        Stream.iterate("",s -> s+"1").limit(4).forEach(System.out::println);
+
+        Predicate<String> predicate = s -> s.length()> 3;
+        var stream = Stream.iterate("-",
+                s -> ! s.isEmpty(), (s) -> s + s);
+        var b1 = stream.noneMatch(predicate);
+        var b2 = stream.anyMatch(predicate);
+        System.out.println(b1 + " " + b2);
+
+    }
+
+    static <K,V> String toString(Map<K,V> map) {
+
+        if (map == null) {
+            return "null";
+        }
+
+        return map.entrySet()
+                .stream()
+                .map(entry -> entry.getKey() + " => " + entry.getValue())
+                .collect(Collectors.joining("\n"));
     }
 }
